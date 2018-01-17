@@ -1,0 +1,50 @@
+@import './_variables.scss';
+
+.page-header{
+  width: 100%;
+  height: 76px;
+  background-color: #fff;
+  box-shadow: 0 0px 12px #666;
+  position: relative;
+  .header-content{
+    max-width: 1170px;
+    margin: 0 auto;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    .logo{
+      >img{
+        width: auto;
+        height: 46px;
+      }
+    }
+    .brands{
+      width: 70px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      right: 140px;
+    }
+  }
+}
+
+.need-help {
+  color: white;
+  float: left;
+  margin-right: 20px;
+}
+
+.nav-bar {
+  border-bottom: 0;
+  line-height: 64px;
+  height: 64px;
+}
+
+.contact {
+  font-size: 1.2rem;
+  color: $white;
+}

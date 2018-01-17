@@ -1,0 +1,43 @@
+.loading-container, .error-container{
+  flex: auto;
+  background-color: white;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+      width: 80%;
+      text-align: left;
+
+      > * {
+        word-break: break-word;
+        word-wrap:break-word;
+      }
+    }
+  }
+
+
+  img {
+    width: 60%;
+  }
+}
+.loading-container {
+}
+.error-container{
+  .content{
+    h1{
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 46px;
+      color: rgb(105, 105, 110);
+    }
+    h2{
+      color: #f00;
+    }
+  }
+  .img{
+    text-align: center;
+  }
+}
