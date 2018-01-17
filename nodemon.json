@@ -1,0 +1,25 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "package.json",
+    "node_modules/**/node_modules",
+    "src/*",
+    "public/*",
+    "build/*",
+    "*.log",
+    "*.md"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "events": {
+    "restart": "osascript -e 'display notification \"Server Restarted\" with title \"nodemon\"'"
+  },
+  "env": {
+    "DEBUG": "server-main:*,modules:*,utils:*",
+    "NODE_ENV": "development"
+  },
+  "ext": "js json"
+}

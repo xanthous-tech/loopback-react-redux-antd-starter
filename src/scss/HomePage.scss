@@ -1,0 +1,15 @@
+.home {
+  flex: 1;
+  overflow: hidden;
+}
+.home-page {
+  width: 400px;
+  margin: auto;
+  box-sizing: border-box;
+  &.padding__big {
+    padding: 120px 0;
+  }
+  &.padding__small {
+    padding: 60px 0;
+  }
+}

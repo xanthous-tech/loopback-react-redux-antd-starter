@@ -1,0 +1,10 @@
+{
+  "mailgun": {
+    "apiKey": "key-920e514a526ef0d234fbc16b45d01062",
+    "domain": "sandbox66360e8fdd054ea8b205a52ad2461adc.mailgun.org",
+    "sendTo": [
+      "lhr0909@qq.com",
+      "Zack@AMZKungfu.com"
+    ]
+  }
+}

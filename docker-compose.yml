@@ -1,0 +1,17 @@
+version: "2"
+services:
+  # web:
+  #   image: "toptal-interview-proj"
+  #   depends_on:
+  #     - mongo
+  #   ports:
+  #    - "9000:9000"
+  #   environment:
+  #     PORT: 9000
+  #     NODE_ENV: development
+  #     SECRET: toptal_calories
+  #     MONGODB_ADDR: mongodb://mongo/toptal
+  mongo:
+    image: "mongo:3"
+    ports:
+      - "27017:27017"

@@ -1,0 +1,30 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "amznkungfu",
+    "password": "",
+    "name": "db",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "memory": {
+    "name": "memory",
+    "connector": "memory"
+  },
+  "email": {
+    "name": "email",
+    "connector": "mail",
+    "transports": [{
+      "type": "smtp",
+      "host": "smtp.qq.com",
+      "port": 587,
+      "secure": false,
+      "auth": {
+        "user": "lhr0909@qq.com",
+        "pass": "xoysntgtuesabheb"
+      }
+    }]
+  }
+}

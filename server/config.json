@@ -1,0 +1,36 @@
+{
+  "restApiRoot": "/api",
+  "host": "0.0.0.0",
+  "port": 9001,
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "mws": {
+    "accessKeyId": "AKIAJBKGUCVRFAU2ZCRQ",
+    "secretAccessKey": "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",
+    "merchantId": "AVPR9LDKYGHZP",
+    "marketplaceId": "ATVPDKIKX0DER"
+  },
+  "mailgun": {
+    "apiKey": "key-920e514a526ef0d234fbc16b45d01062",
+    "domain": "sandbox66360e8fdd054ea8b205a52ad2461adc.mailgun.org",
+    "sendTo": [
+      "lhr0909@qq.com",
+      "Zack@AMZKungfu.com"
+    ]
+  }
+}
