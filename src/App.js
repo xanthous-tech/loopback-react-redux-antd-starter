@@ -34,9 +34,9 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <Router basename={process.env.PUBLIC_URL || '/'}>
-          <LocaleProvider locale={enUS}>
-            <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+        <LocaleProvider locale={enUS}>
+          <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+            <Router basename={process.env.PUBLIC_URL || '/'}>
               <Layout className="app-container">
                 <NavigationBar />
                 <Layout.Content>
@@ -48,9 +48,9 @@ class App extends Component {
                 </Layout.Content>
                 <Footer />
               </Layout>
-            </IntlProvider>
-          </LocaleProvider>
-        </Router>
+            </Router>
+          </IntlProvider>
+        </LocaleProvider>
       </Provider>
     );
   }
