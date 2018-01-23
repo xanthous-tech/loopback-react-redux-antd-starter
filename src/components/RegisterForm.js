@@ -2,31 +2,38 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Icon, Input, Button } from 'antd';
 
-import { login } from '../ducks/login';
+import { register } from '../ducks/login';
 
-import '../css/LoginForm.css';
+import '../css/RegisterForm.css';
 
 function mapDispatchToProps(dispatch) {
   return {
-    login: (credentials) => dispatch(login(credentials))
+    register: (credentials) => dispatch(register(credentials))
   };
 }
 
-class NormalLoginForm extends Component {
+class NormalRegisterForm extends Component {
   handleSubmit = (e) => {
     const self = this;
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        self.props.login(values);
+        self.props.register(values);
       }
     });
   }
-
+  checkPassword = (rule, value, cb) => {
+    const form = this.props.form;
+    if (value && value !== form.getFieldValue('password')) {
+      cb('Two passwords that you enter is inconsistent!');
+    } else {
+      cb();
+    }
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
-    return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
+    return (        
+      <Form onSubmit={this.handleSubmit} className="register-form">
         <Form.Item>
           {getFieldDecorator('email', {
             rules: [{ required: true, message: 'Please input your email!' }],
@@ -42,8 +49,15 @@ class NormalLoginForm extends Component {
           )}
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
+          {getFieldDecorator('passwordConfirm', {
+            rules: [{ required: true, message: 'Please reinput your Password!' }, { validator: this.checkPassword}],
+          })(
+            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password confirm" />
+          )}
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit" className="register-form-button">
+            register
           </Button>
         </Form.Item>
       </Form>
@@ -51,4 +65,4 @@ class NormalLoginForm extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Form.create()(NormalLoginForm));
+export default connect(null, mapDispatchToProps)(Form.create()(NormalRegisterForm));

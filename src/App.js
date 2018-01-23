@@ -23,6 +23,7 @@ import Footer from './pages/Footer';
 import ManagerPage from './pages/ManagerPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 import './css/App.css';
 
@@ -44,6 +45,7 @@ class App extends Component {
                     <Route path="/" exact component={HomePage} />
                     <Route path="/manager" exact component={ManagerPage} />
                     <Route path="/login" exact component={LoginPage} />
+                    <Route path="/register" exact component={RegisterPage} />
                   </Switch>
                 </Layout.Content>
                 <Footer />
