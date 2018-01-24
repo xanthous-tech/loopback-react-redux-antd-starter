@@ -58,7 +58,8 @@
     }
   },
   "final": {
-    "loopback#urlNotFound": {}
+    "loopback#urlNotFound": {
+    }
   },
   "final:after": {
     "strong-error-handler": {}

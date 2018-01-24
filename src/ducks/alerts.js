@@ -4,6 +4,7 @@ import CONSTANT from '../constant';
 export function reducer(previous_state = [], action) {
   switch(action.type) {
     case CONSTANT.LOGIN_FAILED:
+    case CONSTANT.REGISTER_ERROR:
       // trying to match what loopback returns
       let description = '';
       const error_response = action.error.response;
@@ -28,6 +29,12 @@ export function reducer(previous_state = [], action) {
       notification.success({
         message: "Welcome!",
         description: "Login successful"
+      });
+      return previous_state;
+    case CONSTANT.REGISTER_SUCCESS:
+      notification.success({
+        message: 'Register Success!',
+        description: 'Register Success! Welcome.'
       });
       return previous_state;
     default:

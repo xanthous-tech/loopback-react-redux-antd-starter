@@ -37,10 +37,6 @@ export function reducer(previous_state = {
 
 export function login(credentials) {
   return function(dispatch) {
-    // return dispatch({
-    //   type: CONSTANT.LOGIN_SUCCESS,
-    //   access_token: 'test1'
-    // })
     return axios.post(url('/Users/login'), credentials).then(response => {
       return dispatch({
         type: CONSTANT.LOGIN_SUCCESS,
@@ -57,7 +53,7 @@ export function login(credentials) {
 }
 export function register(info) {
   return function(dispatch) {
-    return axios.post(url('/Users/register'), info).then(response => {
+    return axios.post(url('/Users'), info).then(response => {
       return dispatch({
         type: CONSTANT.REGISTER_SUCCESS,
       })

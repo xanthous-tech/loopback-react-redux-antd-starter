@@ -16,9 +16,9 @@ class NormalRegisterForm extends Component {
   handleSubmit = (e) => {
     const self = this;
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFields((err, { username, email, password }) => {
       if (!err) {
-        self.props.register(values);
+        self.props.register({ username, email, password });
       }
     });
   }
@@ -34,6 +34,13 @@ class NormalRegisterForm extends Component {
     const { getFieldDecorator } = this.props.form;
     return (        
       <Form onSubmit={this.handleSubmit} className="register-form">
+        <Form.Item>
+          {getFieldDecorator('username', {
+            rules: [{ required: true, message: 'Please input your username!' }],
+          })(
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+          )}
+        </Form.Item>
         <Form.Item>
           {getFieldDecorator('email', {
             rules: [{ required: true, message: 'Please input your email!' }],
