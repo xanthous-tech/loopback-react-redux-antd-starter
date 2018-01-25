@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect, withRouter, Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from 'react-intl';
-import { Table } from 'antd';
+import { Table, Button } from 'antd';
 
 import '../css/ManagerPage.css';
 
@@ -23,7 +23,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
 class ManagerPage extends Component {
   constructor(props) {
     super(props);
@@ -33,20 +32,44 @@ class ManagerPage extends Component {
     const { getTasks } = this.props
     getTasks()
   }
+  addTask() {
+    window.location.href = '#/manager/task/add'
+  }
+  editTask(id) {
+    return () => {
+      window.location.href = `#/manager/task/${id}/edit`
+    }
+  }
   render() {
     const { logged_in, tasks } = this.props;
     const columns = [{
       title: 'task name',
       dataIndex: 'name',
+      width: '25%',
       key: +new Date() + 'name',
     }, {
       title: 'description',
       dataIndex: 'des',
+      width: '25%',
       key: +new Date() + 'des'
     }, {
       title: 'status',
       dataIndex: 'status',
+      width: '25%',
       key: +new Date() + 'status',
+    }, {
+      title: 'action',
+      width: '25%',
+      key: 'action',
+      render: (text, data) => {
+        const id = data.id
+        console.log(id)
+        return (<div>
+          <Link to={{
+            pathname: `/manager/task/${id}/edit`
+          }}>edit</Link>
+        </div>)
+      }
     }]
     return (!logged_in) ? (<Redirect to={{pathname: '/login', search: '?redirectUrl=/manager' }}/>) : (
       <div className="manager">
@@ -57,6 +80,7 @@ class ManagerPage extends Component {
           </Helmet>
         <div className="manager-page"> 
           <h3><FormattedMessage id="manager.main.h3" defaultMessage="hehe"></FormattedMessage></h3>
+          <Button type="primary" onClick={() => this.addTask()}>add Task</Button>
           <div className="task-list">
             <Table dataSource={tasks} columns={columns} />
           </div>

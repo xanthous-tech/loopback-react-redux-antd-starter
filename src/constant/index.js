@@ -9,11 +9,13 @@ export default Object.assign({}, km({
 
   TASK_ADD_SUCCESS: null,
   TASK_ADD_ERROR: null,
-  TASK_COMPLETE_SUCCESS: null,
-  TASK_COMPLETE_ERROR: null,
+  TASK_MODIFY_SUCCESS: null,
+  TASK_MODIFY_ERROR: null,
   TASK_GET_LIST_SUCCESS: null,
   TASK_GET_LIST_ERROR: null,
-
+  TASK_GET_DETAIL_SUCCESS: null,
+  TASK_GET_DETAIL_ERROR: null,
+  TASK_INIT_STATE: null,
 }), {
   
 })

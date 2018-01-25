@@ -31,11 +31,23 @@ export function reducer(previous_state = [], action) {
         description: "Login successful"
       });
       return previous_state;
-    case CONSTANT.REGISTER_SUCCESS:
-      notification.success({
-        message: 'Register Success!',
-        description: 'Register Success! Welcome.'
-      });
+      case CONSTANT.REGISTER_SUCCESS:
+        notification.success({
+          message: 'Register Success!',
+          description: 'Register Success! Welcome.'
+        });
+      return previous_state;
+      case CONSTANT.TASK_ADD_SUCCESS:
+        notification.success({
+          message: 'Task Add Success!',
+          description: 'Task Add Success.'
+        });
+      return previous_state;
+      case CONSTANT.TASK_MODIFY_SUCCESS:
+        notification.success({
+          message: 'Task Edit Success!',
+          description: 'Task Edit Success!'
+        });
       return previous_state;
     default:
       return previous_state;
