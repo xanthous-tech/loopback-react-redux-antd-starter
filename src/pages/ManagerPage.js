@@ -57,16 +57,24 @@ class ManagerPage extends Component {
       dataIndex: 'status',
       width: '25%',
       key: +new Date() + 'status',
+      render: (text, data) => {
+        const state = data.status
+        if (state === 1) {
+          return <div style={{color: 'blue'}}>done</div>
+        } else if (state === 0) {
+          return <div style={{color: 'green'}}>undo</div>
+        } else {
+          return 'unknown'
+        }
+      }
     }, {
       title: 'action',
       width: '25%',
       key: 'action',
       render: (text, data) => {
-        const id = data.id
-        console.log(id)
         return (<div>
           <Link to={{
-            pathname: `/manager/task/${id}/edit`
+            pathname: `/manager/task/${data.id}/edit`
           }}>edit</Link>
         </div>)
       }

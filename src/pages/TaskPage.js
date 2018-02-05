@@ -107,7 +107,7 @@ class TaskPage extends Component {
           )}
         </Form.Item>
         <Form.Item
-        labelCol={{ span: 4 }}
+        wrapperCol={{ span: 12, offset: 4 }}
         >
           <Button type="primary" htmlType="submit" className="task-form-button">
             {!!id ? 'edit' : 'add'}
