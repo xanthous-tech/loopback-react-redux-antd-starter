@@ -116,24 +116,5 @@
         "permission": "ALLOW"
       }
     ]
-  },
-  "Customer": {
-    "dataSource": "db",
-    "public": true
-  },
-  "Response": {
-    "dataSource": "db",
-    "public": true
-  },
-  "Address": {
-    "dataSource": "db",
-    "public": true
-  },
-  "Email": {
-    "dataSource": "db"
-  },
-  "Task": {
-    "dataSource": "db",
-    "public": true
   }
 }
