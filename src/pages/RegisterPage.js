@@ -9,7 +9,7 @@ import '../css/RegisterForm.css';
 
 function mapStateToProps(state) {
   return {
-    register_status: state.login.register_status
+    register_status: state.auth.register_status
   }
 }
 

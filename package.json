@@ -1,6 +1,6 @@
 {
   "name": "loopback-react-redux-antd-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "server/server.js",
   "engines": {
     "node": ">=6"
@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "npm run build-fe",
     "start": "node .",
-    "debug": "npm-run-all -p watch-css debug-fe debug-be",
+    "debug": "npm-run-all -p watch-css debug-fe",
     "debug-be": "nodemon --inspect .",
     "test": "npm run test-fe",
     "posttest": "npm run lint && nsp check",
@@ -20,6 +20,8 @@
     "test-fe": "cross-env CI=true react-scripts test --env=jsdom"
   },
   "dependencies": {
+    "@okta/okta-react": "^1.0.0",
+    "@okta/okta-signin-widget": "^2.7.0",
     "antd": "^3.0.0",
     "axios": "^0.17.1",
     "bluebird": "^3.5.1",

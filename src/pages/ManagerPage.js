@@ -4,15 +4,17 @@ import { Redirect, withRouter, Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { Table, Button } from 'antd';
+import { withAuth } from '@okta/okta-react';
 
 import '../css/ManagerPage.css';
 
 import { getList } from '../ducks/task';
 
 function mapStateToProps(state) {
-  const { login, task } = state;
+  const { auth, task } = state;
   return {
-    logged_in: login.logged_in,
+    authenticated: auth.authenticated,
+    user: auth.user,
     tasks: task.tasks || []
   };
 }
@@ -79,23 +81,31 @@ class ManagerPage extends Component {
         </div>)
       }
     }]
-    return (!logged_in) ? (<Redirect to={{pathname: '/login', search: '?redirectUrl=/manager' }}/>) : (
-      <div className="manager">
+    if (!this.props.authenticated) {
+      return (<Redirect to="/login?redirectUrl=/manager" />)
+    } else {
+      return (
+        <div className="manager">
           <Helmet>
             <title>{this.props.intl.formatMessage({
               id: 'manager.title'
             })}</title>
           </Helmet>
-        <div className="manager-page"> 
-          <h3><FormattedMessage id="manager.main.h3" defaultMessage="hehe"></FormattedMessage></h3>
-          <Button type="primary" onClick={() => this.addTask()}>add Task</Button>
-          <div className="task-list">
-            <Table dataSource={tasks} columns={columns} />
+          <div className="manager-page">
+            <h3>
+              <FormattedMessage id="manager.main.greatings" defaultMessage="Hello"></FormattedMessage> {this.props.user.given_name} ,
+            </h3>
+            <Button
+              type="primary"
+              onClick={() => this.addTask()}>add Task</Button>
+            <div className="task-list">
+              <Table dataSource={tasks} columns={columns} />
+            </div>
           </div>
         </div>
-      </div>
-    );
+      )
+    }
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(injectIntl(ManagerPage)));
+export default withAuth(withRouter(connect(mapStateToProps, mapDispatchToProps)(injectIntl(ManagerPage))));
