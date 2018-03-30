@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Icon, Input, Button } from 'antd';
 
-import { register } from '../ducks/login';
+import { register } from '../ducks/auth';
 
 import '../css/RegisterForm.css';
 
@@ -32,7 +32,7 @@ class NormalRegisterForm extends Component {
   }
   render() {
     const { getFieldDecorator } = this.props.form;
-    return (        
+    return (
       <Form onSubmit={this.handleSubmit} className="register-form">
         <Form.Item>
           {getFieldDecorator('firstName', {
