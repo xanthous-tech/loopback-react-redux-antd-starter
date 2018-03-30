@@ -46,7 +46,7 @@
     "public": false
   },
   "ACL": {
-    "dataSource": "memory",
+    "dataSource": "db",
     "public": true,
     "acls": [
       {

@@ -45,7 +45,6 @@ class NormalLoginForm extends Component {
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
-          <p>Or <a href="">register now!</a></p>
         </Form.Item>
       </Form>
     );

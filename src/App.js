@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Layout, LocaleProvider } from 'antd';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -23,6 +23,8 @@ import Footer from './pages/Footer';
 import ManagerPage from './pages/ManagerPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import TaskPage from './pages/TaskPage';
 
 import './css/App.css';
 
@@ -44,6 +46,9 @@ class App extends Component {
                     <Route path="/" exact component={HomePage} />
                     <Route path="/manager" exact component={ManagerPage} />
                     <Route path="/login" exact component={LoginPage} />
+                    <Route path="/register" exact component={RegisterPage} />
+                    <Route path="/manager/task/add" exact component={TaskPage} />
+                    <Route path="/manager/task/:id/edit" exact component={TaskPage} />
                   </Switch>
                 </Layout.Content>
                 <Footer />

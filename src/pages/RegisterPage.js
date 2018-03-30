@@ -3,27 +3,28 @@ import { connect } from 'react-redux';
 import { Redirect, withRouter, Link } from 'react-router-dom';
 import queryString  from 'query-string';
 
-import LoginForm from '../components/LoginForm';
+import RegisterForm from '../components/RegisterForm';
 
-import '../css/LoginForm.css';
+import '../css/RegisterForm.css';
 
 function mapStateToProps(state) {
   return {
-    logged_in: state.login.logged_in
+    register_status: state.login.register_status
   }
 }
 
 class LoginPage extends Component {
   render() {
     const redirectTo = queryString.parse(this.props.location.search).redirectUrl || '/'
-    return this.props.logged_in ? (<Redirect to={redirectTo} />) : (
-      <div className="login-form">
-        <h3>Please Log in</h3>
-        <LoginForm className="login-form" />
-        <p>Or <Link to={{
-          pathname: 'register',
+    return this.props.register_status ? (<Redirect to={redirectTo} />) : (
+      <div className="register-form">
+        <h3>Register Here.</h3>
+        <RegisterForm className="register-form" />
+        <p> Or <Link to={{
+          pathname: 'login',
           search: `?redirectUrl=${redirectTo}`
-        }}>register now!</Link></p>
+        }}>to Login! </Link>
+        </p>
       </div>
     );
   }
