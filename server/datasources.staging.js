@@ -2,7 +2,7 @@
 
 module.exports = {
   db: {
-    url: process.env.MONGODB_URI,
+    url: 'mongodb://db:sohardpassword@ds229549.mlab.com:29549/toko-test',
     connector: 'mongodb',
   },
   memory: {
