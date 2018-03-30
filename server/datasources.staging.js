@@ -2,8 +2,13 @@
 
 module.exports = {
   db: {
-    url: 'mongodb://db:sohardpassword@ds229549.mlab.com:29549/toko-test',
+    port: 29549,
+    user: "db",
+    password: 'sohardpassword',
+    database: "toko-test",
     connector: 'mongodb',
+    host: "ds229549.mlab.com",
+    name: "db",
   },
   memory: {
     name: 'memory',
