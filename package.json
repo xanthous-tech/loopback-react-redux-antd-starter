@@ -1,6 +1,6 @@
 {
   "name": "loopback-react-redux-antd-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "server/server.js",
   "engines": {
     "node": ">=6"
@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "npm run build-fe",
     "start": "node .",
-    "debug": "npm-run-all -p watch-css debug-fe debug-be",
+    "debug": "npm-run-all -p watch-css debug-fe",
     "debug-be": "nodemon --inspect .",
     "test": "npm run test-fe",
     "posttest": "npm run lint && nsp check",
@@ -20,6 +20,8 @@
     "test-fe": "cross-env CI=true react-scripts test --env=jsdom"
   },
   "dependencies": {
+    "@okta/okta-react": "^1.0.0",
+    "@okta/okta-signin-widget": "^2.7.0",
     "antd": "^3.0.0",
     "axios": "^0.17.1",
     "bluebird": "^3.5.1",
@@ -28,6 +30,7 @@
     "debug": "^3.1.0",
     "dotenv-cli": "^1.4.0",
     "helmet": "^3.9.0",
+    "history": "^4.7.2",
     "keymirror": "^0.1.1",
     "libphonenumber-js": "^0.4.47",
     "lodash": "^4.17.4",
@@ -47,6 +50,7 @@
     "react-intl": "^2.4.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",

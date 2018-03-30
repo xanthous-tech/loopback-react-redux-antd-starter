@@ -9,6 +9,6 @@ module.exports = {
   "home.main.h3": "hello word!",
   "home.main.h5": " this is loopback-react-redux-antd-starter project!",
   "home.main.tomanager": "to manager page.",
-  "manager.main.h3": "hello manager!",
+  "manager.main.greatings": "Hello",
   "manager.title": "manager page",
 }

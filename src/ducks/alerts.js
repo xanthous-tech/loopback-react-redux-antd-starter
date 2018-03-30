@@ -16,8 +16,8 @@ export function reducer(previous_state = [], action) {
       }
 
       notification.error({
-        message: action.error.name,
-        description
+        message: 'Password requirements were not met.',
+        description: 'Password requirements: at least 8 characters, a lowercase letter, an uppercase letter, a number, no parts of your username.'
       });
       return previous_state.concat([{
         type: action.type,

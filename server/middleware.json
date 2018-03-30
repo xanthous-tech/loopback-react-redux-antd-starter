@@ -50,12 +50,19 @@
     }
   },
   "files": {
-    "loopback#static": {
-      "paths": [
-        "/"
-      ],
-      "params": "$!../build"
-    }
+    "loopback#static": [
+      {
+        "name": "publicPath",
+        "paths": ["/"],
+        "params": "$!../build"
+      },
+      {
+        "name": "reactRouter",
+        "paths": ["*"],
+        "params": "$!../build/index.html",
+        "optional": true
+      }
+    ]
   },
   "final": {
     "loopback#urlNotFound": {

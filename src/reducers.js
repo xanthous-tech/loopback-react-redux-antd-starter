@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
-import { reducer as loginReducer } from './ducks/login';
+import { reducer as authReducer } from './ducks/auth';
 import { reducer as alertsReducer } from './ducks/alerts';
 import { reducer as taskReducer } from './ducks/task';
 
 export default combineReducers({
-  login: loginReducer,
+  router: routerReducer,
+  auth: authReducer,
   alerts: alertsReducer,
   task: taskReducer,
 });
