@@ -39,6 +39,11 @@ const config = {
   client_id: '0oaei5a0i314xQSJw0h7'
 }
 
+function customAuthHandler({ history }) {
+  // Redirect to the /login page that has a CustomLoginComponent
+  history.push('/login');
+}
+
 class App extends Component {
   render () {
     return (
@@ -48,6 +53,7 @@ class App extends Component {
             <ConnectedRouter history={history} basename={process.env.PUBLIC_URL || '/'}>
               <Security issuer={config.issuer}
                 client_id={config.client_id}
+                onAuthRequired={customAuthHandler}
                 redirect_uri={config.redirect_uri}>
                 <Layout className="app-container">
                   <NavigationBar />

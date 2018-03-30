@@ -32,7 +32,7 @@ class LoginPage extends Component {
       logo: logoImg,
       i18n: {
         en: {
-          'primaryauth.title': 'Sign in to React & Company',
+          'primary.auth.title': 'Sign in to React & Company',
         },
       },
       authParams: {
@@ -56,6 +56,9 @@ class LoginPage extends Component {
         throw err;
       },
     );
+  }
+  componentWillUnmount() {
+    this.signIn.remove()
   }
   render() {
     const redirectTo = queryString.parse(this.props.location.search).redirectUrl || '/'

@@ -60,11 +60,13 @@ class NavigationBar extends Component {
     // Redirect to '/' after login
     const toRedirect = (this.props.location.pathname !== '/') ? this.props.location.pathname : false;
     this.props.history.push(`/login${(toRedirect) ? `?redirectUrl=${toRedirect}` : ''}`)
+    this.props.auth.login('/');
   }
 
   async logout() {
     // Redirect to '/' after logout
     this.props.auth.logout('/');
+    this.props.history.push('/')
   }
 
   render () {
