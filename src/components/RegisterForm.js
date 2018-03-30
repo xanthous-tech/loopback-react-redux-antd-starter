@@ -16,9 +16,9 @@ class NormalRegisterForm extends Component {
   handleSubmit = (e) => {
     const self = this;
     e.preventDefault();
-    this.props.form.validateFields((err, { username, email, password }) => {
+    this.props.form.validateFields((err, { firstName, lastName, email, password }) => {
       if (!err) {
-        self.props.register({ username, email, password });
+        self.props.register({ firstName, lastName, email, password });
       }
     });
   }
@@ -35,15 +35,28 @@ class NormalRegisterForm extends Component {
     return (        
       <Form onSubmit={this.handleSubmit} className="register-form">
         <Form.Item>
-          {getFieldDecorator('username', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+          {getFieldDecorator('firstName', {
+            rules: [{ required: true, message: 'Please input your first name!' }],
           })(
-            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+            <Input placeholder="First Name" />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('lastName', {
+            rules: [{ required: true, message: 'Please input your last name!' }],
+          })(
+            <Input placeholder="Last Name" />
           )}
         </Form.Item>
         <Form.Item>
           {getFieldDecorator('email', {
-            rules: [{ required: true, message: 'Please input your email!' }],
+            rules: [
+              { required: true, message: 'Please input your email!' },
+              {
+                pattern: /[^\s@]+@[^\s@]+\.[^\s@]+/,
+                message: 'Please put in a valid email address.'
+              }
+            ],
           })(
             <Input prefix={<Icon type="mail" style={{ fontSize: 13 }} />} placeholder="Email" />
           )}

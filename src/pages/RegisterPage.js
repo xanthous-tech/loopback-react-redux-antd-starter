@@ -15,15 +15,11 @@ function mapStateToProps(state) {
 
 class LoginPage extends Component {
   render() {
-    const redirectTo = queryString.parse(this.props.location.search).redirectUrl || '/'
-    return this.props.register_status ? (<Redirect to={redirectTo} />) : (
+    return (
       <div className="register-form">
         <h3>Register Here.</h3>
         <RegisterForm className="register-form" />
-        <p> Or <Link to={{
-          pathname: 'login',
-          search: `?redirectUrl=${redirectTo}`
-        }}>to Login! </Link>
+        <p> Or <Link to="/">to Login! </Link>
         </p>
       </div>
     );

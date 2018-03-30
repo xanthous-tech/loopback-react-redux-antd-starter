@@ -53,7 +53,7 @@ export function login(credentials) {
 }
 export function register(info) {
   return function(dispatch) {
-    return axios.post(url('/Users'), info).then(response => {
+    return axios.post(url('/okta-register'), info).then(response => {
       return dispatch({
         type: CONSTANT.REGISTER_SUCCESS,
       })
@@ -62,6 +62,6 @@ export function register(info) {
         type: CONSTANT.REGISTER_ERROR,
         error,
       })
-    })
+    });
   }
 }
