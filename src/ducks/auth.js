@@ -1,5 +1,7 @@
 import axios from 'axios';
-
+import {
+  push
+} from 'react-router-redux'
 import { url } from '../utils/ajax';
 
 import CONSTANT from '../constant';
@@ -84,6 +86,7 @@ export function login(credentials) {
 export function register(info) {
   return function(dispatch) {
     return axios.post(url('/okta-register'), info).then(response => {
+      dispatch(push('/login'))
       return dispatch({
         type: CONSTANT.REGISTER_SUCCESS,
       })
