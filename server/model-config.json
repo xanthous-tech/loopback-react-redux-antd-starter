@@ -116,5 +116,9 @@
         "permission": "ALLOW"
       }
     ]
+  },
+  "Task": {
+    "dataSource": "db",
+    "public": true
   }
 }

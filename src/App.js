@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Layout, LocaleProvider } from 'antd';
 import {
-  HashRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 import enUS from 'antd/lib/locale-provider/en_US';
 
 // 国际化
@@ -16,7 +16,7 @@ import zh from 'react-intl/locale-data/zh'
 import appLocale from './locales/en-US.js';
 // import appLocale from './locales/zh-cn.js';
 
-import configureStore from './store';
+import configureStore, { history } from './store';
 
 import NavigationBar from './pages/NavigationBar';
 import Footer from './pages/Footer';
@@ -38,7 +38,7 @@ class App extends Component {
       <Provider store={store}>
         <LocaleProvider locale={enUS}>
           <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-            <Router basename={process.env.PUBLIC_URL || '/'}>
+            <ConnectedRouter history={history} basename={process.env.PUBLIC_URL || '/'}>
               <Layout className="app-container">
                 <NavigationBar />
                 <Layout.Content>
@@ -53,7 +53,7 @@ class App extends Component {
                 </Layout.Content>
                 <Footer />
               </Layout>
-            </Router>
+            </ConnectedRouter>
           </IntlProvider>
         </LocaleProvider>
       </Provider>
